@@ -46,16 +46,6 @@ When a student asks for a hint, the Express server sends Gemini a prompt contain
 4. If it leaks: regenerate once with a reminder; if it leaks again, send a safe fallback message.
 5. The student message and tutor reply are logged to `chat_messages`.
 
-## What we changed from the base project
-- One question per assignment -> multiple problems with answer keys (new `problems` table).
-- Answer keys stay on the server; the student endpoint returns problems without them.
-- Server-side grading with equivalent-form matching (`lib/answers.js`).
-- Writing-guide prompt -> math tutor prompt grounded in the answer key, plus an answer-leak guard.
-- Teacher routes protected by a passcode.
-- Front end rewritten for multiple problems, a timer, per-problem tutor chat, and teacher results. The base project's paste/tab-leave tracking was dropped; "hints asked" is kept.
-- Chat logging and per-problem results for the teacher.
-- Tests for grading and the leak guard.
-
 ## Known limitations (so far)
 - Teacher passcode is a single shared secret, not per-teacher accounts.
 - Algebraic expressions are compared as normalized text, not symbolically.
