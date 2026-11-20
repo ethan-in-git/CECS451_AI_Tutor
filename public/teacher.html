@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher - Math Tutor</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/teacher.js" defer></script>
+</head>
+<body>
+    <h1>Teacher Dashboard</h1>
+
+    <section id="unlock-section" class="panel">
+        <h2>Teacher sign-in</h2>
+        <form id="unlock-form">
+            <label for="passcode">Teacher passcode</label>
+            <input
+                id="passcode"
+                type="password"
+                autocomplete="current-password"
+                placeholder="Enter the shared passcode"
+                aria-describedby="passcode-help"
+                required
+            >
+            <p class="muted" id="passcode-help">Use the passcode provided for this prototype.</p>
+            <button type="submit">Unlock</button>
+        </form>
+        <p id="unlock-status" class="error"></p>
+    </section>
+
+    <div id="teacher-main" hidden>
+        <section class="panel">
+            <h2>Create an assignment</h2>
+            <form id="assignment-form">
+                <label for="title">Title</label>
+                <input id="title" maxlength="200" required>
+
+                <label for="time-limit">Time limit (minutes)</label>
+                <input id="time-limit" type="number" min="1" max="120" value="10" required>
+
+                <label for="instructions">Instructions (optional)</label>
+                <textarea id="instructions" maxlength="2000"></textarea>
+
+                <h3>Problems</h3>
+                <p class="muted">Write each answer key the way a student would enter it, like 3/4. To accept other forms, separate them with | (for example 3/4 | 0.75). Answer keys are never shown to students.</p>
+                <div id="problem-rows"></div>
+                <button type="button" id="add-problem" class="secondary">Add problem</button>
+                <button type="submit" id="publish-button">Publish assignment</button>
+            </form>
+            <p id="publish-status"></p>
+            <div id="published" hidden>
+                <p>Give students this join code:</p>
+                <div id="published-code" class="code"></div>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Your assignments</h2>
+            <div id="assignment-list"></div>
+        </section>
+
+        <section id="results-panel" class="panel" hidden></section>
+    </div>
+</body>
+</html>
