@@ -3,69 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f0f4f4">
     <title>Student - Math Tutor</title>
     <link rel="stylesheet" href="style.css">
     <script src="js/student.js" defer></script>
 </head>
 <body>
-    <h1>Math Tutor</h1>
+    <header class="page-header">
+        <h1>Math Tutor</h1>
+        <a class="back-link" href="homepage.html">Back to home</a>
+    </header>
 
-    <section id="join-section" class="panel">
-        <h2>Join an assignment</h2>
-        <form id="join-form">
-            <label for="join-code">Join code</label>
-            <input
-                id="join-code"
-                maxlength="6"
-                autocomplete="off"
-                autocapitalize="characters"
-                spellcheck="false"
-                placeholder="e.g. A7K2QX"
-                aria-describedby="join-help"
-                required
-            >
-            <p class="muted" id="join-help">Enter the 6-character code your teacher shared.</p>
+    <main>
+        <section id="join-section" class="panel">
+            <h2>Join an assignment</h2>
+            <p class="muted">Enter the code from your teacher to get started.</p>
+            <form id="join-form">
+                <label for="join-code">Join code</label>
+                <input
+                    id="join-code"
+                    maxlength="6"
+                    autocomplete="off"
+                    autocapitalize="characters"
+                    spellcheck="false"
+                    placeholder="e.g. A7K2QX"
+                    aria-describedby="join-help"
+                    required
+                >
+                <p class="muted field-help" id="join-help">Enter the 6-character code your teacher shared.</p>
 
-            <label for="student-name">Your name</label>
-            <input
-                id="student-name"
-                maxlength="100"
-                autocomplete="off"
-                placeholder="First name or nickname"
-                required
-            >
-            <button id="join-button" type="submit">Join</button>
-        </form>
-        <p id="join-status" class="error"></p>
-    </section>
+                <label for="student-name">Your name</label>
+                <input
+                    id="student-name"
+                    maxlength="100"
+                    autocomplete="name"
+                    placeholder="First name or nickname"
+                    required
+                >
+                <button id="join-button" type="submit">Join assignment</button>
+            </form>
+            <p id="join-status" class="error status-message" role="status" aria-live="polite" aria-atomic="true"></p>
+        </section>
 
-    <div id="workspace" hidden>
-        <div class="panel">
-            <h2 id="assignment-title"></h2>
-            <p id="assignment-instructions"></p>
-            <p>Time left: <span id="timer" class="timer"></span></p>
-        </div>
-
-        <div class="workspace">
-            <section class="panel">
-                <h2>Problems</h2>
-                <p class="muted">Enter fractions like 3/4 and mixed numbers like 1 1/2. Click "Get a hint" to talk to the tutor about a problem.</p>
-                <div id="problems"></div>
-                <button id="submit-button" type="button">Submit answers</button>
-                <p id="submit-status"></p>
-                <div id="results" hidden></div>
+        <div id="workspace" hidden>
+            <section class="panel assignment-summary" aria-labelledby="assignment-title">
+                <h2 id="assignment-title"></h2>
+                <p id="assignment-instructions"></p>
+                <p class="time-remaining">Time left: <span id="timer" class="timer" role="timer" aria-live="off"></span></p>
             </section>
 
-            <aside class="panel">
-                <h2 id="chat-title">Tutor</h2>
-                <div id="chat-messages" class="chat-messages"></div>
-                <form id="chat-form">
-                    <label for="chat-input">Ask for a hint</label>
-                    <input id="chat-input" maxlength="2000" autocomplete="off" disabled>
-                    <button id="chat-send" type="submit" disabled>Send</button>
-                </form>
-            </aside>
+            <div class="workspace">
+                <section class="panel" aria-labelledby="problems-heading">
+                    <h2 id="problems-heading">Problems</h2>
+                    <p class="muted">Enter fractions like 3/4 and mixed numbers like 1 1/2. Choose “Get a hint” on a problem to talk to the tutor about it.</p>
+                    <div id="problems"></div>
+                    <button id="submit-button" type="button">Submit answers</button>
+                    <p id="submit-status" class="status-message" role="status" aria-live="polite" aria-atomic="true"></p>
+                    <div id="results" aria-live="polite" aria-atomic="true" hidden></div>
+                </section>
+
+                <aside class="panel tutor-panel" aria-labelledby="chat-title">
+                    <h2 id="chat-title">Tutor</h2>
+                    <div id="chat-messages" class="chat-messages" role="log" aria-live="polite" aria-relevant="additions text" aria-label="Tutor conversation"></div>
+                    <form id="chat-form">
+                        <label for="chat-input">Ask for a hint</label>
+                        <input id="chat-input" maxlength="2000" autocomplete="off" placeholder="What part are you stuck on?" disabled>
+                        <button id="chat-send" type="submit" disabled>Send</button>
+                    </form>
+                </aside>
+            </div>
         </div>
-    </div>
+    </main>
 </body>
 </html>
