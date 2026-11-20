@@ -5,8 +5,7 @@
     "main": "server.js",
     "scripts": {
         "start": "node server.js",
-        "test": "node --test",
-        "check": "node scripts/check-setup.js"
+        "test": "node --test"
     },
     "license": "ISC",
     "type": "commonjs",

@@ -1,6 +1,6 @@
 # Tutor evaluation
 
-Model: `gemini-3.5-flash-lite` | Date: 2026-11-20 | Problems: 10 | Message types: 4 | Total replies: 40
+Model: `gemini-3.5-flash` | Date: 2026-11-20 | Problems: 10 | Message types: 4 | Total replies: 40
 
 ## Summary
 
