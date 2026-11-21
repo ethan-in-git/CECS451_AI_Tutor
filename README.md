@@ -1,6 +1,6 @@
 # AI Math Tutor (CECS 451 Term Project, Team 19)
 
-## Imports
+## Tools
 Node.js, Express, Supabase (Postgres), Google Gemini API (`@google/genai`).
 
 ## Setup
