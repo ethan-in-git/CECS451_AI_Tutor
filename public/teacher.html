@@ -7,8 +7,11 @@
     <title>Teacher - Math Tutor</title>
     <link rel="stylesheet" href="style.css">
     <script src="js/teacher.js" defer></script>
+    <script src="js/copy-code.js" defer></script>
+    <script src="js/theme-toggle.js" defer></script>
 </head>
 <body>
+    <button id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
     <header class="page-header">
         <h1>Teacher Dashboard</h1>
         <a class="back-link" href="homepage.html">Back to home</a>
@@ -57,6 +60,8 @@
                 <div id="published" class="published-card" aria-live="polite" aria-atomic="true" hidden>
                     <p>Give students this join code:</p>
                     <div id="published-code" class="code" aria-label="Assignment join code"></div>
+                    <button id="copy-code-button" type="button" class="secondary">Copy join code</button>
+                    <p id="copy-code-status" class="status-message" role="status" aria-live="polite" aria-atomic="true"></p>
                 </div>
             </section>
 
